@@ -6,6 +6,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use(express.static(path.join(__dirname, 'public')));
 
+var port = 3000;
 app.get("/", function(req,res){
    // res.render("admin_login");
       res.render("admin-login");
@@ -27,7 +28,7 @@ else{
     res.render("notfound.ejs");
 }
 });
+var server = app.listen(port, function () {
+  console.log("Server listening on " + port);
+})
 module.exports.app = app;
-app.listen(3000 , function(){
-  console.log("App is running");
-});

@@ -18,6 +18,8 @@
     "request": "^2.88.0"
   },
   "dependencies": {
-    "ejs": "^3.0.2"
+    "ejs": "^3.0.2",
+    "express": "^4.17.1"
+
   }
 }
