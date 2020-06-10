@@ -14,10 +14,14 @@
 
 
 
-FROM node:13       
+FROM node:13  
+
 WORKDIR /app
+
 COPY package*.json ./
 COPY . /app
+
 RUN npm install
 EXPOSE 3000
+
 CMD ["node", "app.js"]
