@@ -11,14 +11,11 @@
 #   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
-
-
-
 FROM node:13  
 WORKDIR /app
-#COPY package*.json ./
-ADD package.json /app/package.json
+COPY package.json ./
+#ADD package.json /app/package.json
 COPY . /app
 RUN npm install
 EXPOSE 3000
-CMD ["node", "app.js"]
+CMD ["node","app.js"]
