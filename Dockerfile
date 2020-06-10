@@ -15,13 +15,10 @@
 
 
 FROM node:13  
-
 WORKDIR /app
-
-COPY package*.json ./
+#COPY package*.json ./
+ADD package.json /app/package.json
 COPY . /app
-
 RUN npm install
 EXPOSE 3000
-
 CMD ["node", "app.js"]
