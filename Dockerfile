@@ -13,8 +13,7 @@
 #   limitations under the License.
 FROM node:13  
 WORKDIR /app
-COPY package.json ./
-#ADD package.json /app/package.json
+COPY package*.json ./
 COPY . /app
 RUN npm install
 EXPOSE 3000
