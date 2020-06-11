@@ -23,7 +23,8 @@ To complete the steps in this tutorial, you need:
 
 1. [Clone the GitHub repository](#step-1-clone-the-github-repository)
 1. [Create Kubernetes cluster](#step-2-create-kubernetes-cluster)
-1. [Configure Toolchain](#step-3-configure-toolchain)
+1. [Create Container registry](#step-3-create-container-registry)
+1. [Configure Toolchain](#step-4-configure-toolchain)
 
 ### Step 1. Clone the GitHub repository
 1. Open your terminal and change your directory by using the `cd downloads` command. (Or any other directory in which you want to clone the project.)
@@ -42,7 +43,19 @@ __NOTE:__ We've already created Dockerfile and deployment files in the project t
 __NOTE:__ In free plan you will get worker node of  2 vCPUs 4GB RAM.
 
 
-### Step 3. Configure Toolchain
+### Step 3.  Create IBM Container Registry
+
+__NOTE__: We can skip this step and directly integrate cr in Toolchain step but it could case the error if your registry name is not unique.
+
+
+
+1. Search for Container Registry from the search bar on top.
+1. Click on create button.
+1. Now from "Location" dropbox select __Frankurt__  region. 
+1. Click on create and give some unique name, example (devops_space01)
+
+
+### Step 4. Configure Toolchain
 
 #### What is IBM Toolchain?
 With IBM Toolchain, you can develop and deploy an application securely into a Kubernetes cluster managed by the IBM Cloud Kubernetes Service.The toolchain includes [Vulnerability Advisor](https://cloud.ibm.com/docs/va) to provide a secure container.
