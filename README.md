@@ -59,7 +59,7 @@ Perform the following tasks:
 
    1. App name:  mypipeline
    1. In IBM Cloud API key , click  __new__ button and a popup will open select __ok__ from there.
-   1. Container registry namespace: mynamepsace (Try to put unique name)
+   1. Container registry and Cluster region both will be selected as __Franfurt__. (Or select region where you have created             your services)
    1. Once everyhing is configured, kindly click __create__ button.
 1. Once Toolchain is configured successfully
    
