@@ -43,7 +43,7 @@ __NOTE:__ We've already created Dockerfile and deployment files in the project t
 __NOTE:__ In free plan you will get worker node of  2 vCPUs 4GB RAM.
 
 
-### Step 3.  Create IBM Container Registry
+### Step 3. Create IBM Container Registry
 
 __NOTE__: We can skip this step and directly integrate cr in Toolchain step but it could case the error if your registry name is not unique.
 
