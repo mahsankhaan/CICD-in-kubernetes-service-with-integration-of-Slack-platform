@@ -1,7 +1,7 @@
 **Continuous integration & Deployment in IBM Kubernetes service**
 
 
-This tutorial show how to setup CI/CD for applications running on the Kubernetes service and how to enhance the colloboration expereince within the team by integrating  Slack platform . 
+This tutorial show how to setup CI/CD for applications running on the Kubernetes service and how to enhance the colloboration expereince within the team by integrating Slack platform . 
 
 
 ## Architecture 
@@ -43,10 +43,9 @@ __NOTE:__ We've already created Dockerfile and deployment files in the project t
 __NOTE:__ In free plan you will get worker node of  2 vCPUs 4GB RAM.
 
 
-### Step 3. Create IBM Container Registry
+### Step 3. Create Container registry
 
 __NOTE__: We can skip this step and directly integrate cr in Toolchain step but it could case the error if your registry name is not unique.
-
 
 
 1. Search for Container Registry from the search bar on top.
