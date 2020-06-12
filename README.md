@@ -85,4 +85,4 @@ Perform the following tasks:
 
    1. __Deploy stage__: Checks for cluster readiness and namespace existence, configures the cluster namespace, updates the                           __deployment.yml__ manifest file, and grants access to the private image registry.
    
-    __Note:__ In our case, we are getting a warning because we didn't activate the SSL certificate.
+    Note: In our case, we are getting a warning because we didn't activate the SSL certificate.
