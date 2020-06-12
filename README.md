@@ -73,5 +73,16 @@ Perform the following tasks:
    1. In IBM Cloud API key , click  __new__ button and a popup will open select __ok__ from there.
    1. Container registry and Cluster region both will be selected as __Franfurt__. (Or select region where you have created             your services)
    1. Once everyhing is configured, kindly click __create__ button.
-1. Once Toolchain is configured successfully
+1. Once Delivery Pipeline is configured successfully, we are able to see below image:
+
+![Delivery Pipeline](images/m3.png)
+
+
+   1. __Build stage__ : If a manifest.yml file exists in the root folder, it is used to determine which buildpack to use.  
+
+   1. __Containerize stage__: Checks for the Dockerfile in your root folder, once the image is successfully built then create an IBM container registry and deploy the image there.  It will check if there any vulnerabilities in the image, if there is any high warnings image will not deploy. 
+
+__Note:__ In our case, we are getting a warning because we didn't activate the SSL certificate.
+
+  1.__Deploy stage__: Checks for cluster readiness and namespace existence, configures the cluster namespace, updates the __deployment.yml__ manifest file, and grants access to the private image registry.
    
