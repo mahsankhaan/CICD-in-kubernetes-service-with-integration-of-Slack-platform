@@ -80,9 +80,10 @@ Perform the following tasks:
 
    1. __Build stage__ : If a manifest.yml file exists in the root folder, it is used to determine which buildpack to use.  
 
-   1. __Containerize stage__: Checks for the Dockerfile in your root folder, once the image is successfully built then create an IBM container registry and deploy the image there.  It will check if there any vulnerabilities in the image, if there is any high warnings image will not deploy. 
+   1. __Containerize stage__: Checks for the Dockerfile in your root folder, once the image is successfully built then create                               an IBM container registry and deploy the image there.  It will check if there any        
+                               vulnerabilities in the image, if there is any high warnings image will not deploy. 
 
    __Note:__ In our case, we are getting a warning because we didn't activate the SSL certificate.
 
-   1. __Deploy stage__: Checks for cluster readiness and namespace existence, configures the cluster namespace, updates the __deployment.yml__ manifest file, and grants access to the private image registry.
+  1. __Deploy stage__: Checks for cluster readiness and namespace existence, configures the cluster namespace, updates the                           __deployment.yml__ manifest file, and grants access to the private image registry.
    
