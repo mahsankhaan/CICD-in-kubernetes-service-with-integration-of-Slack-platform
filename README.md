@@ -106,10 +106,21 @@ Perform the following tasks:
 ### Step 6. Integrate Slack
 If you don't have slack account please create it first. From here https://slack.com/get-started#/create
 
-Lets activaite slack api, please follow the below steps :
- 1. Create a slack app from here https://api.slack.com/apps, __App Nam__ : IBM Toolchain , __Workspace__ : testing  (select it you used while createing your account).
-
+1. Lets activaite slack api, please follow the below steps :
+   1. Create a slack app from here https://api.slack.com/apps, __App Nam__ : IBM Toolchain , __Workspace__ : testing  (select   the workspace you created while activating your account).
+   1. After creating, you'll be redirected to the settings page for your new app.
+   1. From here select the __Incoming Webhooks__ feature, click the Activate Incoming Webhook and toggle to switch it __on__.
+   1. Now click on __Add New Webhook to Workspace__.
+   1. Pick a channel that the app will post to, and then click __allow__.
+   1. You'll be sent back to your app settings, and a new entry is there under the __Webhook URLs__
  
+ 
+1. Once slack is setup , lets integrate it with our toolchain
+   1. Go back to view the list of toolchains and select your toolchain, then click on __Add a Tool__.
+   1. Insert the configuration, in __webhook__ & __channel__ : webhook url (step 1 vi) and __Slack team name__: testing-raf9874.slack.com (open your slack, click your workspace name in the top left and copy the name)
+   1. Once details are completed, click __create integration__ .
+   1. Now our pipleline will look like the image below : 
+   
+![slack pipeline](images/m4.png)
 
 
-1. Go back to view the list of toolchains and select your toolchain, then click on __Add a Tool__.
