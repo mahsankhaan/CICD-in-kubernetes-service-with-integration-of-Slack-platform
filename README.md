@@ -96,9 +96,9 @@ Perform the following tasks:
 1. Select the __Deploy to Kubernetes__ .
 1. Scroll till the end of logs till you see __VIEW THE APPLICATION AT__: http://169.51.194.12:32478 (url could be different, run the url in the browser and see if the application is running).
 1. Now let see the services running on __Kubernetes cluster__.
-  1. Click on the three dots on the left, go to resources list.
-  1. Under __cluster__ , open the service.
-  1. Once inside the cluster from top left select __Kubernetes Dashboard__.
-  1. From left under Namespaces, select __prod__ .
-  1. Now check the services running as __hello-app__ .
+    1. Click on the three dots on the left, go to resources list.
+    1. Under __cluster__ , open the service.
+    1. Once inside the cluster from top left select __Kubernetes Dashboard__.
+    1. From left under Namespaces, select __prod__ .
+    1. Now check the services running as __hello-app__ .
 
