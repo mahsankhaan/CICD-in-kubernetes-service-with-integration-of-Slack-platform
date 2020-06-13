@@ -25,6 +25,8 @@ To complete the steps in this tutorial, you need:
 1. [Create Kubernetes cluster](#step-2-create-kubernetes-cluster)
 1. [Create Container registry](#step-3-create-container-registry)
 1. [Configure Toolchain](#step-4-configure-toolchain)
+1. [Verify application is up and running](#step-5-verify-application-is-up-and-running)
+
 
 ### Step 1. Clone the GitHub repository
 1. Open your terminal and change your directory by using the `cd downloads` command. (Or any other directory in which you want to clone the project.)
@@ -86,3 +88,17 @@ Perform the following tasks:
    1. __Deploy stage__: Checks for cluster readiness and namespace existence, configures the cluster namespace, updates the                           __deployment.yml__ manifest file, and grants access to the private image registry.
    
     Note: In our case, we are getting a warning because we didn't activate the SSL certificate.
+    
+    
+### Step 5. Verify application is up and running
+
+1. On the DEPLOY stage, click __View logs and history__. 
+1. Select the __Deploy to Kubernetes__ .
+1. Scroll till the end of logs till you see __VIEW THE APPLICATION AT__: http://169.51.194.12:32478 (url could be different, run the url in the browser and see if the application is running).
+1. Now let see the services running on __Kubernetes cluster__.
+  1. Click on the three dots on the left, go to resources list.
+  1. Under __cluster__ , open the service.
+  1. Once inside the cluster from top left select __Kubernetes Dashboard__.
+  1. From left under Namespaces, select __prod__ .
+  1. Now check the services running as __hello-app__ .
+
