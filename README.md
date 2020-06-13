@@ -26,6 +26,7 @@ To complete the steps in this tutorial, you need:
 1. [Create Container registry](#step-3-create-container-registry)
 1. [Configure Toolchain](#step-4-configure-toolchain)
 1. [Verify application is up and running](#step-5-verify-application-is-up-and-running)
+1. [Integrate Slack](#step-6-integrate-slack)
 
 
 ### Step 1. Clone the GitHub repository
@@ -102,3 +103,13 @@ Perform the following tasks:
     1. From left under Namespaces, select __prod__ .
     1. Now check the services running as __hello-app__ .
 
+### Step 6. Integrate Slack
+If you don't have slack account please create it first. From here https://slack.com/get-started#/create
+
+Lets activaite slack api, please follow the below steps :
+ 1. Create a slack app from here https://api.slack.com/apps, __App Nam__ : IBM Toolchain , __Workspace__ : testing  (select it you used while createing your account).
+
+ 
+
+
+1. Go back to view the list of toolchains and select your toolchain, then click on __Add a Tool__.
