@@ -121,6 +121,6 @@ If you don't have slack account please create it first. From here https://slack.
    1. Once details are completed, click __create integration__ .
    1. Now our pipleline will look like the image below : 
    
-![slack pipeline](images/m4.png)
+![slack pipeline](images/s4.png)
 
 
