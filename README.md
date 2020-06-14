@@ -31,9 +31,10 @@ To complete the steps in this tutorial, you need:
 
 ### Step 1. Clone the GitHub repository
 1. Open your terminal and change your directory by using the `cd downloads` command. (Or any other directory in which you want to clone the project.)
-1. Run the command: `git clone https://github.com/mahsankhaan/CICD-in-kubernetes.git`.
+1. Run the command: `git clone https://github.com/mahsankhaan/CICD-in-kubernetes.git`
 1. Open the project in Visual Studio code.
-1. Within VS code open terminal `Ctrl+shift+~` and Run command `node app.js` to check the application running successfully locally.
+1. Within VS code open terminal `Ctrl+shift+~` and go to the project directory. 
+1. Run command `npm install` and then run `node app.js` to check the application running successfully locally.
 
 
 __NOTE:__ We've already created Dockerfile and deployment files in the project that will be used in the next few steps, please go through the file. Secondly in this tutorial, we are not focusing on how to write these two files if you want to learn more please check our complete tutorial from [here](https://github.com/marketplace) or the [video](https://www.youtube.com/watch?v=_oKqtRf0aSY) .
