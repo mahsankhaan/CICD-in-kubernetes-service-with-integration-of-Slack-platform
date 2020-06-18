@@ -69,13 +69,13 @@ For more details on IBM Toolchain, please visit [here](https://www.ibm.com/cloud
 
 Perform the following tasks:
 1. On the top search bar search for __Toolchain__ . You'll be redirected to toolchain dashboard and where many ready-made toolchains are available, kindly select __Develop a Kubernetes app__
-1.  Give any name to your toolchain __mytoolchain__ , "region" would be __frankfurt__  . And in "Select a source provider" give __Git Repos and Issue Tracking__
+1.  Give any name to your toolchain __mytoolchain__ , "region" would be __Frankfurt__  . And in "Select a source provider" give __Git Repos and Issue Tracking__
 1. Under Tool integration section, in __Source repository url__ put `https://github.com/mahsankhaan/CICD-in-kubernetes.git `
 1. Select Delivery Pipeline tab and complete the fields according to below steps.
 
    1. App name:  mypipeline
    1. In IBM Cloud API key , click  __new__ button and a popup will open select __ok__ from there.
-   1. Container registry and Cluster region both will be selected as __Franfurt__. (Or select region where you have created             your services)
+   1. Container registry and Cluster region both will be selected as __Frankfurt__. (Or select region where you have created             your services)
    1. Once everyhing is configured, kindly click __create__ button.
 1. Once Delivery Pipeline is configured successfully, we are able to see below image:
 
