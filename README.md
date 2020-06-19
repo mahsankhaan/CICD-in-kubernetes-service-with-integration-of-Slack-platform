@@ -49,7 +49,7 @@ __NOTE:__ In free plan you will get worker node of  2 vCPUs 4GB RAM.
 
 ### Step 3. Create Container registry
 
-__NOTE__: We can skip this step and directly integrate container registry in Toolchain step but it could case the error if your registry name is not unique.
+__NOTE__: We can skip this step and directly integrate container registry in Toolchain step but it could cause an error if your registry name is not unique.
 
 
 1. Search for Container Registry from the search bar on top.
