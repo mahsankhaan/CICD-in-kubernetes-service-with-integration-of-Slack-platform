@@ -104,7 +104,7 @@ Perform the following tasks:
     1. Click on the three dots on the left, go to resources list.
     1. Under __cluster__ , open the service.
     1. Once inside the cluster from top left select __Kubernetes Dashboard__.
-    1. From left under Namespaces, select __prod__ .
+    1. From left under Namespaces, select __default__ .
     1. Now check the services running as __hello-app__ .
 
 ### Step 6. Integrate Slack
