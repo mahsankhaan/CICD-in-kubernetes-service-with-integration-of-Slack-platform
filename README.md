@@ -1,7 +1,6 @@
 **Continuous integration & Deployment in IBM Kubernetes service with integration of Slack platform**
 
-
-This tutorial show how to setup CI/CD for applications running on the Kubernetes service and how to enhance the colloboration expereince within the team by integrating Slack platform . 
+This tutorial show how to setup IBM Toolchain that uses CI/CD stack to maintain and deploy  applications running on  IBM Kubernetes service and how to enhance the collaboration experience within the team by integrating Slack platform  . 
 
 
 ## Architecture 
