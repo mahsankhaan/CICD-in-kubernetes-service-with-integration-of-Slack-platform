@@ -6,7 +6,7 @@ This tutorial show how to setup CI/CD for applications running on the Kubernetes
 
 ## Architecture 
 
-![Architecture diagram of CI/CD](images/m1.png)
+![Architecture diagram of CI/CD](images/m.png)
 
 
 ## Prerequisites
