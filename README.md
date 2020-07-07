@@ -5,7 +5,7 @@ This tutorial show how to setup IBM Toolchain that uses CI/CD stack to maintain 
 
 ## Architecture 
 
-![Architecture diagram of CI/CD](images/m.png)
+![Architecture diagram of CI/CD](images/m1.png)
 
 
 ## Prerequisites
