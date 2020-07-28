@@ -3,11 +3,6 @@
 This tutorial show how to setup IBM Toolchain that uses CI/CD stack to maintain and deploy  applications running on  IBM Kubernetes service and how to enhance the collaboration experience within the team by integrating Slack platform  . 
 
 
-## Architecture 
-
-![Architecture diagram of CI/CD](images/m.png)
-
-
 ## Prerequisites
 
 To complete the steps in this tutorial, you need:
