@@ -9,7 +9,7 @@ To complete the steps in this tutorial, you need:
 * [Create IBM Account](link)
 * [Docker](https://docs.docker.com/install/) on your local computer. (optional)
 * [IBM CLI](https://docs.docker.com/install/).
-* [Visual Studio Code](https://code.visualstudio.com/) for local development.
+* [Visual Studio Code](https://code.visualstudio.com/) or any IDE for local development.
 * A [GitHub](https://github.com/) account and some knowledge of git commands.
 
 
@@ -26,7 +26,7 @@ To complete the steps in this tutorial, you need:
 ### Step 1. Clone the GitHub repository
 1. Open your terminal and change your directory by using the `cd downloads` command. (Or any other directory in which you want to clone the project.)
 1. Run the command: `git clone https://github.com/mahsankhaan/CICD-in-kubernetes.git`
-1. Open the project in Visual Studio code.
+1. Open the project in Visual Studio code or in your favourite IDE.
 1. Within VS code open terminal `Ctrl+shift+~` and go to the project directory. 
 1. Run command `npm install` to install the dependencies and then run`node app.js` to check the application running successfully locally.
 
