@@ -49,7 +49,7 @@ __NOTE__: We can skip this step and directly integrate container registry in Too
 
 1. Search for Container Registry from the search bar on top.
 1. Click on create button.
-1. Now from "Location" dropbox select __Frankurt__  region. 
+1. Now from "Location" dropbox select the closest region. In our case it is __Frankurt__  region. 
 1. Click on create and give some unique name, example (devops_space01)
 
 
