@@ -17,7 +17,7 @@ To complete the steps in this tutorial, you need:
 
 ## Steps
 
-1. [Clone the GitHub repository](#step-1-clone-the-github-repository)
+1. [Fork and Clone the GitHub repository](#step-1-fork-and-clone-the-github-repository)
 1. [Create Kubernetes cluster](#step-2-create-kubernetes-cluster)
 1. [Create Container registry](#step-3-create-container-registry)
 1. [Configure Toolchain](#step-4-configure-toolchain)
@@ -25,12 +25,11 @@ To complete the steps in this tutorial, you need:
 1. [Integrate Slack](#step-6-integrate-slack)
 
 
-### Step 1. Clone the GitHub repository
+### Step 1. Fork and Clone the GitHub repository
+1. Open [repo](https://github.com/mahsankhaan/CICD-in-kubernetes-service-with-integration-of-Slack-platform) and on top right click on __Fork__  save it in your GitHub. (will be used in __Source repository url__ at step 4).
 1. Open your terminal and change your directory by using the `cd downloads` command. (Or any other directory in which you want to clone the project.)
 1. Run the command: `git clone https://github.com/mahsankhaan/CICD-in-kubernetes.git`
-1. Open the project in Visual Studio code or in your favourite IDE.
-1. Within VS code open terminal `Ctrl+shift+~` and go to the project directory. 
-1. Run command `npm install` to install the dependencies and then run`node app.js` to check the application running successfully locally.
+1. Move into the cloned folder and Run command `npm install` to install the dependencies and then run`node app.js` to check the application running successfully locally.
 
 
 __NOTE:__ We've already created Dockerfile and deployment files in the project that will be used in the next few steps, please go through the file. Secondly in this tutorial, we are not focusing on how to write these two files if you want to learn more please check our complete tutorial from [here](https://github.com/marketplace) or the [video](https://www.youtube.com/watch?v=_oKqtRf0aSY) .
