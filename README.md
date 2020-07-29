@@ -35,11 +35,13 @@ To complete the steps in this tutorial, you need:
 __NOTE:__ We've already created Dockerfile and deployment files in the project that will be used in the next few steps, please go through the file. Secondly in this tutorial, we are not focusing on how to write these two files if you want to learn more please check our complete tutorial from [here](https://github.com/marketplace) or the [video](https://www.youtube.com/watch?v=_oKqtRf0aSY) .
 
 ### Step 2. Create Kubernetes cluster
-1. Login to IBM account and once you are successfully in, on the top search bar search for __Kubernetes service__ .
-1. In Select a plan section, select __free__ option, then in resource details give your cluster name. Once everything is completed click on the __Create__ button on right.
-1. Kindly wait for this step, it would take 10-15min to configure Kubernetes cluster.
 
-__NOTE:__ In free plan you will get worker node of  2 vCPUs 4GB RAM.
+1. Create [IBM Kubernetes service](https://cloud.ibm.com/kubernetes/catalog/create)
+
+![K8's](images/k1.png)
+
+
+__NOTE:__ Kindly wait for this step, it would take 10-15min to configure Kubernetes cluster.
 
 
 ### Step 3. Create Container registry
