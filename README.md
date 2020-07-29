@@ -23,6 +23,7 @@ To complete the steps in this tutorial, you need:
 1. [Configure Toolchain](#step-4-configure-toolchain)
 1. [Verify application is up and running](#step-5-verify-application-is-up-and-running)
 1. [Integrate Slack](#step-6-integrate-slack)
+1. [Make some changes to Toolchain and check updates on Slack Platform](#step-7-make-some-changes-to-toolchain-and-check-updates-on-slack-platform)
 
 
 ### Step 1. Fork and Clone the GitHub repository
@@ -67,7 +68,7 @@ For more details on IBM Toolchain, please visit [here](https://www.ibm.com/cloud
 Perform the following tasks:
 1. On the top search bar search for __Toolchain__ . You'll be redirected to toolchain dashboard and where many ready-made toolchains are available, kindly select __Develop a Kubernetes app__
 1.  Give any name to your toolchain __mytoolchain__ , "region" would be __Frankfurt__  . And in "Select a source provider" give __Git Repos and Issue Tracking__
-1. Under Tool integration section, in __Source repository url__ put your fork link done in [step 1](#step-1-fork-and-clone-the-github-repository). In our case  `https://github.com/mahsankhaan/CICD-in-kubernetes.git ` 
+1. Under Tool integration section, in __Source repository url__ put your fork link, done in [step 1](#step-1-fork-and-clone-the-github-repository). In our case  `https://github.com/mahsankhaan/CICD-in-kubernetes.git ` 
 
    __Note:__ Kindly put your Fork URL or you will not be able to trigger the changes in IBM Toolchain.
 
