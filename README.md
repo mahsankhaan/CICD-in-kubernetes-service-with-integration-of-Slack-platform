@@ -8,7 +8,7 @@ This tutorial show how to setup IBM Toolchain that uses CI/CD stack to maintain 
 ## Prerequisites
 
 To complete the steps in this tutorial, you need:
-* [Create IBM Account](link)
+* [Create IBM Account](https://cloud.ibm.com/registration)
 * [Slack]( https://slack.com/intl/en-ca/help/articles/206845317-Create-a-Slack-workspace)
 * [IBM CLI](https://docs.docker.com/install/).
 * [Visual Studio Code](https://code.visualstudio.com/) or any IDE for local development.
