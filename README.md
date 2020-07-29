@@ -115,7 +115,7 @@ If you don't have slack account please create it first. From here https://slack.
  
 1. Once slack is setup , lets integrate it with our toolchain
    1. Go back to view the list of toolchains and select your toolchain, then click on __Add a Tool__.
-   1. Insert the configuration, in __webhook__ & __channel__ : webhook url (step 1 vi) and __Slack team name__: testing-raf9874.slack.com (open your slack, click your workspace name in the top left and copy the name)
+   1. Insert the configuration, in __Slack webhook__ : webhook url (step 1 vi) , __Slack channel__ : kubernetes and __Slack team name__: testing-raf9874.slack.com (open your slack, click your workspace name in the top left and copy the name)
    1. Once details are completed, click __create integration__ .
    1. Now our final pipleline will look like: 
    
