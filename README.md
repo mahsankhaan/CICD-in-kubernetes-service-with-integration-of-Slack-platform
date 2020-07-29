@@ -121,4 +121,11 @@ If you don't have slack account please create it first. From here https://slack.
    
 ![slack pipeline](images/s4.png)
 
+1. Now open  Slack platform and inside the configured channel there must be a message __Service Slack Kubernetes has been bound to toolchain.. __
+
+### Step 7. Make some changes to Toolchain and check updates on Slack Platform
+1. Open Delivery pipeline, and click on play button on __deploy__ stage.
+1. Stage will start running and inside the slack platform we can verifiy the execution as below (through this everyone in the team would have better visualization on the project) 
+
+![update on slack](images/s5.png)
 
