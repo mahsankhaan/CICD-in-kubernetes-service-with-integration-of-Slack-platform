@@ -109,7 +109,7 @@ If you don't have slack account please create it first. From here https://slack.
    1. After creating, you'll be redirected to the settings page for your new app.
    1. From here select the __Incoming Webhooks__ feature, click the Activate Incoming Webhook and toggle to switch it __on__.
    1. Now click on __Add New Webhook to Workspace__.
-   1. Pick a channel that the app will post to, and then click __allow__.
+   1. Pick a channel that the app will post to(in our case channel is __kubernetes__), and then click __allow__.
    1. You'll be sent back to your app settings, and a new entry is there under the __Webhook URLs__
  
  
