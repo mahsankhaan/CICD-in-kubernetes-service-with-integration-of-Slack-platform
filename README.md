@@ -25,7 +25,6 @@ To complete the steps in this tutorial, you need:
 1. [Integrate Slack](#step-6-integrate-slack)
 1. [Make some changes to Toolchain and check updates on Slack Platform](#step-7-make-some-changes-to-toolchain-and-check-updates-on-slack-platform)
 
-
 ### Step 1. Fork and Clone the GitHub repository
 1. Open [repo](https://github.com/mahsankhaan/CICD-in-kubernetes-service-with-integration-of-Slack-platform) and on top right click on __Fork__  save it in your GitHub. (will be used in __Source repository url__ in step 4).
 1. Open your terminal and change your directory by using the `cd downloads` command. (Or any other directory in which you want to clone the project.)
@@ -136,3 +135,9 @@ If you don't have slack account please create it first. From here https://slack.
 
 ![update on slack](images/s5.png)
 
+### Conclusion 
+In this tutorial, we learn how to work with IBM Toolchain to manage our Kubernetes Service with automated stages that eject the manual interaction of developer and operational teams. 
+
+Secondly, learn the importance of Slack Platform in DevOps lifecycle. How to configure and integrate it with IBM Toolchain to verify and identify all the execution performed by any specific role. Through that teams can enhance the collaboration experience.
+
+In the future, DevOps team can use IBM Toolchain service for the Multi staging strategy for best practices - before deploying complete workload to the production Kubernetes cluster it could be deployed in Test Environment stage. Incase of any failures will not affect the production environment.
