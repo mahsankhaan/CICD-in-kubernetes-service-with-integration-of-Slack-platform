@@ -1,5 +1,7 @@
 **Continuous integration & Deployment in IBM Kubernetes service with integration of Slack platform**
 
+In the cloud, DevOps has become the buzzword in the industry. As enterprises move their workloads to the cloud, the need for transparency and visibility across the development and operational teams is really important so here comes the real power of Slack Platform which can help the teams collaborate and coordinate their work no matter where they are - in the field office, at home, or any where in the globe.
+
 This tutorial show how to setup IBM Toolchain that uses CI/CD stack to maintain and deploy  applications running on  IBM Kubernetes service and how to enhance the collaboration experience within the team by integrating Slack platform  . 
 
 
