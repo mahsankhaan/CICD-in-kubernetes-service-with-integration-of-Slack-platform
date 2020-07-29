@@ -138,6 +138,6 @@ If you don't have slack account please create it first. From here https://slack.
 ### Conclusion 
 In this tutorial, we learn how to work with IBM Toolchain to manage our Kubernetes Service with automated stages that eject the manual interaction of developer and operational teams. 
 
-Secondly, learn the importance of Slack Platform in DevOps lifecycle. How to configure and integrate it with IBM Toolchain to verify and identify all the execution performed by any specific role. Through that teams can enhance the collaboration experience.
+Secondly, learn the importance of Slack Platform in DevOps lifecycle. How to configure and integrate it with IBM Toolchain to verify and identify all the execution performed by any specific role, through which teams can enhance the collaboration experience.
 
 In the future, DevOps team can use IBM Toolchain service for the Multi staging strategy for best practices - before deploying complete workload to the production Kubernetes cluster it could be deployed in Test Environment stage. Incase of any failures will not affect the production environment.
