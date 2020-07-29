@@ -66,7 +66,9 @@ Perform the following tasks:
 1. On the top search bar search for __Toolchain__ . You'll be redirected to toolchain dashboard and where many ready-made toolchains are available, kindly select __Develop a Kubernetes app__
 1.  Give any name to your toolchain __mytoolchain__ , "region" would be __Frankfurt__  . And in "Select a source provider" give __Git Repos and Issue Tracking__
 1. Under Tool integration section, in __Source repository url__ put your fork link done in [step 1](#step-1-fork-and-clone-the-github-repository). In our case  `https://github.com/mahsankhaan/CICD-in-kubernetes.git ` 
+
 __Note:__ Kindly put your Fork URL or you will not be able to trigger the changes in IBM Toolchain.
+
 1. Select Delivery Pipeline tab and complete the fields according to below steps.
 
    1. App name:  mypipeline
