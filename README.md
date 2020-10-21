@@ -1,143 +1,154 @@
-**Continuous integration & Deployment in IBM Kubernetes service with integration of Slack platform**
+**Integrate a CI/CD pipeline to a Kubernetes cluster with Slack**
 
-In the cloud, DevOps has become the buzzword in the industry. As enterprises move their workloads to the cloud, the need for transparency and visibility across the development and operational teams is really important so here comes the real power of Slack Platform which can help the teams collaborate and coordinate their work no matter where they are - in the field office, at home, or any where in the globe.
+_Use a toolchain to maintain apps running on the IBM Cloud Kubernetes Service and send notifications to a Slack channel_
 
-This tutorial show how to setup IBM Toolchain that uses CI/CD stack to maintain and deploy  applications running on  IBM Kubernetes service and how to enhance the collaboration experience within the team by integrating Slack platform  . 
-
+As enterprises move workloads to the cloud, transparency and visibility across development and operations (DevOps) teams are really important. The real power of the Slack messaging platform is to help teams collaborate and coordinate their work no matter where they are located, in the field office, at home, or anywhere around the globe. This tutorial shows you how to set up a toolchain of IBM Cloud services that uses a continuous integration and continuous delivery (CI/CD) stack to maintain and deploy applications running on a Kubernetes cluster. Then, it shows how you can enhance the collaboration experience within your DevOps team by integrating the toolchain with the Slack platform so your Slack channel receives notifications about deployment activities.
 
 ## Prerequisites
 
-To complete the steps in this tutorial, you need:
-* [Create IBM Account](https://cloud.ibm.com/registration)
-* [IBM Kubernetes service](https://cloud.ibm.com/kubernetes/catalog/create)
-* [Slack]( https://slack.com/intl/en-ca/help/articles/206845317-Create-a-Slack-workspace)
-* [Visual Studio Code](https://code.visualstudio.com/) or any IDE for local development.
-* A [GitHub](https://github.com/) account and some knowledge of git commands.
+You need the following tools to complete the steps in this tutorial:
 
+* [IBM Cloud](https://cloud.ibm.com/registration) account.
+* Access to the [IBM Cloud Kubernetes Service](https://cloud.ibm.com/kubernetes/catalog/create) to create a Kubernetes cluster. If needed, you can create [one free cluster](https://cloud.ibm.com/docs/containers?topic=containers-cs_ov#cluster_types) for 30 days to get familiar with Kubernetes capabilities.
+* [Slack workspace](https://slack.com/intl/en-ca/help/articles/206845317-Create-a-Slack-workspace).
+* [Visual Studio Code](https://code.visualstudio.com/) or another integrated development environment (IDE) for local development.
+* A [GitHub](https://github.com/) account and some knowledge of [Git commands](https://training.github.com/).
 
 ## Steps
 
-1. [Fork and Clone the GitHub repository](#step-1-fork-and-clone-the-github-repository)
-1. [Create Kubernetes cluster](#step-2-create-kubernetes-cluster)
-1. [Create Container registry](#step-3-create-container-registry)
-1. [Configure Toolchain](#step-4-configure-toolchain)
-1. [Verify application is up and running](#step-5-verify-application-is-up-and-running)
-1. [Integrate Slack](#step-6-integrate-slack)
-1. [Make some changes to Toolchain and check updates on Slack Platform](#step-7-make-some-changes-to-toolchain-and-check-updates-on-slack-platform)
+1. [Fork and clone the GitHub repository](#step-1-fork-and-clone-the-github-repository)
+1. [Create a Kubernetes cluster](#step-2-create-a-kubernetes-cluster)
+1. [Create the container registry](#step-3-create-the-container-registry)
+1. [Configure a toolchain](#step-4-configure-a-toolchain)
+1. [Verify the application is running](#step-5-verify-the-application-is-running)
+1. [Activate the Slack API](#step-6-activate-the-slack-api)
+1. [Integrate your Slack app with your toolchain](#step-7-integrate-your-slack-app-with-your-toolchain)
+1. [Change the toolchain and check updates on Slack](#step-8-change-the-toolchain-and-check-updates-on-slack)
 
-### Step 1. Fork and Clone the GitHub repository
-1. Open [repo](https://github.com/mahsankhaan/CICD-in-kubernetes-service-with-integration-of-Slack-platform) and on top right click on __Fork__  save it in your GitHub. (will be used in __Source repository url__ in step 4).
-1. Open your terminal and change your directory by using the `cd downloads` command. (Or any other directory in which you want to clone the project.)
-1. Run the command: `git clone https://github.com/mahsankhaan/CICD-in-kubernetes.git`
-1. Move into the cloned folder and Run command `npm install` to install the dependencies and then run`node app.js` to check the application running successfully locally.
+### Step 1. Fork and clone the GitHub repository
 
+1. Open the [GitHub repository](https://github.com/mahsankhaan/CICD-in-kubernetes-service-with-integration-of-Slack-platform) that contains the sample code for this tutorial.
+1. Click __Fork__ from the menu bar to copy the repository into your GitHub account. You will use the URL of your forked repository in [Step 4](#step-4-configure-a-toolchain).
+1. Open your terminal and change your directory by using the `cd downloads` command (or any other directory in which you want to clone the project).
+1. Run the `git clone https://github.com/mahsankhaan/CICD-in-kubernetes.git` command.
+1. Move into the cloned folder and run the `npm install` command to install the dependencies.
+1. Run the `node app.js` command to check that the application runs successfully on you local device.
 
-__NOTE:__ We've already created Dockerfile and deployment files in the project that will be used in the next few steps, please go through the file. Secondly in this tutorial, we are not focusing on how to write these two files if you want to learn more please check our complete tutorial from [here](https://github.com/marketplace) or the [video](https://www.youtube.com/watch?v=_oKqtRf0aSY) .
+__Note:__ The project contains the Dockerfile and deployment files that you use in the next few steps, so please go through the file. This tutorial does not focus on how to write these two files, but if you want to learn more, [read our complete tutorial](https://github.com/marketplace) or [watch the video](https://www.youtube.com/watch?v=_oKqtRf0aSY). __(EDITOR NOTE: These two URLs do not work. What are the correct ones?)__
 
-### Step 2. Create Kubernetes cluster
+### Step 2. Create a Kubernetes cluster
 
-1. Create [IBM Kubernetes service](https://cloud.ibm.com/kubernetes/catalog/create)
+1. Log into your IBM Cloud account and navigate to the [Kubernetes Cluster](https://cloud.ibm.com/kubernetes/catalog/create) page.
+1. Create a Kubernetes cluster. If you need assistance, refer to the steps in the [Getting started with IBM Cloud Kubernetes Service](https://cloud.ibm.com/docs/containers?topic=containers-getting-started) documentation.
 
-![K8's](images/k1.png)
+  ![Screen capture of the Create tab within the Kubernetes Cluster page of IBM Cloud](images/k1.png)
 
+It may take 10 to 15 minutes for your Kubernetes cluster to provision.
 
-__NOTE:__ Kindly wait for this step, it would take 10-15min to configure Kubernetes cluster.
+### Step 3. Create the container registry
 
+1. Go to the [Container Registry page](https://cloud.ibm.com/kubernetes/catalog/registry) within IBM Cloud.
+1. Click the __Create__ button.
+1. Within the __Location__ drop box, select the region that is closest to you geographically.
+1. Click the __Namespaces__ tab.
+1. Click __Create__.
+1. In the __Create namespace__ pane, enter a unique name for your registry within the __Name__ field.
+1. Click __Create__.
 
-### Step 3. Create Container registry
+__Note:__ Although you could skip this step and directly integrate the container registry within [Step 4](#step-4-configure-a-toolchain), it could cause an error if your registry name is not unique.
 
-__NOTE__: We can skip this step and directly integrate container registry in Toolchain step but it could cause an error if your registry name is not unique.
+### Step 4. Configure a toolchain
 
+Toolchains provide an integrated set of tools to build, deploy, and manage your apps. By creating a toolchain on IBM Cloud, you can develop and deploy an application securely into a Kubernetes cluster managed by the IBM Cloud Kubernetes Service. The toolchain includes [Vulnerability Advisor](https://cloud.ibm.com/docs/va) to provide a secure container.
 
-1. Search for Container Registry from the search bar on top.
-1. Click on create button.
-1. Now from "Location" dropbox select the closest region. In our case it is __Frankurt__  region. 
-1. Click on create and give some unique name, example (devops_space01)
-
-
-### Step 4. Configure Toolchain
-
-#### What is IBM Toolchain?
-With IBM Toolchain, you can develop and deploy an application securely into a Kubernetes cluster managed by the IBM Cloud Kubernetes Service.The toolchain includes [Vulnerability Advisor](https://cloud.ibm.com/docs/va) to provide a secure container.
-
-After you create the toolchain and when we push changes to our repo, the delivery pipeline automatically builds and deploys the code.
-
-For more details on IBM Toolchain, please visit [here](https://www.ibm.com/cloud/architecture/toolchains)
+After you create the toolchain in this step and push the changes to your repository, the delivery pipeline will automatically build and deploy the code. [Learn more about creating toolchains on IBM Cloud.](https://www.ibm.com/cloud/architecture/toolchains)
 
 Perform the following tasks:
-1. On the top search bar search for __Toolchain__ . You'll be redirected to toolchain dashboard and where many ready-made toolchains are available, kindly select __Develop a Kubernetes app__
-1.  Give any name to your toolchain __mytoolchain__ , "region" would be __Frankfurt__  . And in "Select a source provider" give __Git Repos and Issue Tracking__
-1. Under Tool integration section, in __Source repository url__ put your fork link, done in [step 1](#step-1-fork-and-clone-the-github-repository). In our case  `https://github.com/mahsankhaan/CICD-in-kubernetes.git ` 
 
-   __Note:__ Kindly put your Fork URL or you will not be able to trigger the changes in IBM Toolchain.
+1. Go to the [Create a Toolchain dashboard](https://cloud.ibm.com/devops/create) within IBM Cloud.
+1. There are many ready-made toolchains are available on the dashboard. Select __Develop a Kubernetes app__.
+1. Enter any name you want within the __Toolchain Name__ field.
+1. In the __Select Region__ field, choose the same location as the one you chose in [Step 3](#step-3-create-the-container-registry).
+1. In the __Select a source provider__ field, choose __Git Repos and Issue Tracking__.
+1. Within the __Tool Integrations__ section, in the __Source repository URL__ field, enter the URL of the forked repository that you created in [Step 1](#step-1-fork-and-clone-the-github-repository).
+1. Click the __Delivery Pipeline__ tab.
+1. In the __App name__ field, enter `mypipeline`.
+1. In the __IBM Cloud API key__ field, click the __New__ button.
+1. In the __Create a new API key with full access__ window, select __OK__.
+1. In the __Container registry region__ and __Cluster region__ fields, select the region where you created your services earlier.
+1. Click the __Create__ button.
+1. After the Delivery Pipeline status box indicates that it is configured successfully, click it to open the Delivery Pipeline status page.
 
-1. Select Delivery Pipeline tab and complete the fields according to below steps.
+  ![Screen capture of the Delivery Pipeline status page](images/m3.png)
 
-   1. App name:  mypipeline
-   1. In IBM Cloud API key , click  __new__ button and a popup will open select __ok__ from there.
-   1. Container registry and Cluster region both will be selected as __Frankfurt__. (Or select region where you have created your services)
-   1. Once everyhing is configured, kindly click __create__ button.
-1. Once Delivery Pipeline is configured successfully, we are able to see below image:
+  The screen capture of the Delivery Pipeline page shows the three pipeline stages:
 
-![Delivery Pipeline](images/m3.png)
+  * __Build:__ If a `manifest.yml` file exists in the root folder, it is used to determine which buildpack to use.
+  * __Containerize:__ This stage checks for the Dockerfile in your root folder, creates a container registry after the image is successfully built, and deploys the image in the registry. This stage also checks for any vulnerabilities in the image, and if there are any, then images with high warnings will not deploy.
+  * __Deploy:__ This stage checks for cluster readiness and namespace existence, configures the cluster namespace, updates the `deployment.yml` manifest file, and grants access to the private image registry.
 
+__Note:__ The screen capture image displays a warning because we did not activate the SSL certificate.
 
-   1. __Build stage__ : If a manifest.yml file exists in the root folder, it is used to determine which buildpack to use.  
+### Step 5. Verify the application is running
 
-   1. __Containerize stage__: Checks for the Dockerfile in your root folder, once the image is successfully built then create                               an IBM container registry and deploy the image there.  It will check if there any        
-                               vulnerabilities in the image, if there is any high warnings image will not deploy. 
+1. Within the Deploy stage, click __View logs and history__.
+1. Select __Deploy to Kubernetes__.
+1. Scroll to the end of the logs, until you reach `VIEW THE APPLICATION AT:` followed by a URL.
+1. Open your browser and run the URL to check whether the application is running.
 
-   1. __Deploy stage__: Checks for cluster readiness and namespace existence, configures the cluster namespace, updates the                           __deployment.yml__ manifest file, and grants access to the private image registry.
-   
-    Note: In our case, we are getting a warning because we didn't activate the SSL certificate.
-    
-    
-### Step 5. Verify application is up and running
+  ![Screen capture of the ADMIN LOGIN screen of the application](images/m5.png)
 
-1. On the DEPLOY stage, click __View logs and history__. 
-1. Select the __Deploy to Kubernetes__ .
-1. Scroll till the end of logs till you see __VIEW THE APPLICATION AT__: http://169.51.194.12:32478 (url could be different, run the url in browser and check if the application is running).
+Now you will verify if the services are running on your Kubernetes cluster.
 
-![application](images/m5.png)
+1. Go to the __[Resource list](https://cloud.ibm.com/resources)__ in IBM Cloud.
+1. Expand __Cluster__ and click on the Kubernetes cluster service that you created in [Step 2](#step-2-create-a-kubernetes-cluster).
+1. Within your cluster service page, select __Kubernetes dashboard__ from the menu bar.
+1. Within the side panel of the Kubernetes dashboard, click __Namespaces__.
+1. Select __default__ from the Namespaces list.
+1. Check the services running as `hello-app`.
 
-1. Now let see the services running on __Kubernetes cluster__.
-    1. Click on the three dots on the left, go to resources list.
-    1. Under __cluster__ , open the service.
-    1. Once inside the cluster from top left select __Kubernetes Dashboard__.
-    1. From left under Namespaces, select __default__ .
-    1. Now check the services running as __hello-app__ .
+### Step 6. Activate the Slack API
 
-### Step 6. Integrate Slack
-If you don't have slack account please create it first. From here https://slack.com/get-started#/create
+If you do not already have a Slack account, [create one](https://slack.com/get-started#/create) before starting the following tasks to activate the Slack API.
 
-1. Lets activaite slack api, please follow the below steps :
-   1. Create a slack app from here https://api.slack.com/apps, __App Nam__ : IBM Toolchain , __Workspace__ : testing  (select   the workspace you created while activating your account).
-   1. After creating, you'll be redirected to the settings page for your new app.
-   1. From here select the __Incoming Webhooks__ feature, click the Activate Incoming Webhook and toggle to switch it __on__.
-   1. Now click on __Add New Webhook to Workspace__.
-   1. Pick a channel that the app will post to(in our case channel is __kubernetes__), and then click __allow__.
-   1. You'll be sent back to your app settings, and a new entry is there under the __Webhook URLs__
- 
- 
-1. Once slack is setup , lets integrate it with our toolchain
-   1. Go back to view the list of toolchains and select your toolchain, then click on __Add a Tool__.
-   1. Insert the configuration, in __Slack webhook__ : webhook url (step 1 vi) , __Slack channel__ : kubernetes and __Slack team name__: testing-raf9874.slack.com (open your slack, click your workspace name in the top left and copy the name)
-   1. Once details are completed, click __create integration__ .
-   1. Now our final pipleline will look like: 
-   
-![slack pipeline](images/s4.png)
+1. Within your browser, go to [https://api.slack.com/apps](https://api.slack.com/apps).
+1. Click __Create an App__.
+1. Within the __Create a Slack App__ window, enter `IBM Toolchain` in the __App Name__ field.
+1. In the __Development Slack Workspace__ drop down list, select the workspace that you identified or created to fulfill the [Prerequisites](#prerequisites) for this tutorial.
+1. Click __Create App__. After your app is created, you will be redirected to the settings page for your new app.
+1. Select __Incoming Webhooks__.
+1. Set __Activate Incoming Webhooks__ to __On__.
+1. Click __Add New Webhook to Workspace__.
+1. Pick a channel from the list that you want the app to post notifications to.
+1. Click __Allow__.
+1. Back on the __Incoming Webhooks__ page, there is a new entry within the __Webhook URL__ section for the channel you selected. Click the __Copy__ button to save the URL for an upcoming task.
 
-1. Now open  Slack platform and inside the configured channel there must be a message __Service Slack Kubernetes has been bound to toolchain.. __
+### Step 7. Integrate your Slack app with your toolchain
 
-### Step 7. Make some changes to Toolchain and check updates on Slack Platform
-1. Open Delivery pipeline, and click on play button on __deploy__ stage.
-1. Stage will start running and inside the slack platform we can verifiy the execution as below (through this everyone in the team would have better visualization on the project) 
+Now that your Slack app is set up, you can integrate it with your toolchain in IBM Cloud.
 
-![update on slack](images/s5.png)
+1. Go to the [__Toolchains__ dashboard](https://cloud.ibm.com/devops/toolchains) within IBM Cloud.
+1. In the __Location__ list, choose the region where you created your toolchain in [Step 4](#step-4-configure-a-toolchain).
+1. Select your toolchain from the list.
+1. On you toolchain overview page, click the __Add tool__ button.
+1. Type `Slack` in the search box and click the __Slack__ integration option that appears.
+1. On the __Configure Slack__ page, paste the webhook URL that you copied at the end of [Step 6]((#step-6-activate-the-slack-api)) into the __Slack webhook__ field.
+1. Within the __Slack channel__ field, enter the name of the channel that you selected in Step 6 to post notifications to.
+1. In the __Slack team name__ field, enter the name of your Slack team. (To find your team name, open your Slack workspace, expand your workspace name located in the side panel, and copy the word or phrase that appears before `.slack.com`.)
+1. Click the __Create Integration__ button. Your toolchain overview page will now display your Slack integration within a __Culture__ section of the pipeline.
 
-### Conclusion 
-In this tutorial, we learn how to work with IBM Toolchain to manage our Kubernetes Service with automated stages that eject the manual interaction of developer and operational teams. 
+  ![Screen capture of updated toolchain overview page](images/s4.png)
 
-Secondly, learn the importance of Slack Platform in DevOps lifecycle. How to configure and integrate it with IBM Toolchain to verify and identify all the execution performed by any specific role, through which teams can enhance the collaboration experience.
+1. Open your Slack workspace. Inside the configured channel will be a message stating that your Slack service has been bound to your toolchain.
 
-In the future, DevOps team can use IBM Toolchain service for the Multi staging strategy for best practices - before deploying complete workload to the production Kubernetes cluster it could be deployed in Test Environment stage. Incase of any failures will not affect the production environment.
+### Step 8. Change the toolchain and check updates on Slack
+
+1. From your toolchain overview page, click the Delivery Pipeline status box to open the Delivery Pipeline status page.
+1. Within the __Deploy__ stage, click the __Run Stage__ icon.
+1. The stage will start running and verification messages will appear in your Slack workspace channel. In a real world scenario, everyone on your team would have better visualization of the project changes through these types of automated deployment messages.
+
+  ![Screen capture of Deploy stage updates appearing within the Slack channel](images/s5.png)
+
+## Conclusion
+
+In this tutorial, you learned how to work with toolchains to manage applications running on a Kubernetes cluster with automated stages that replace the manual interaction of development and operations teams. In addition, this tutorial demonstrated how the Slack platform can enhance DevOps collaboration by integrating it with an IBM Cloud toolchain to verify executions performed by a specific role. Teams could use DevOps toolchains for multi-staging strategies as part of their best practices. For example, before deploying a complete workload to a production Kubernetes cluster, it could be deployed in the test environment stage and not affect the production environment if there are any failures.
